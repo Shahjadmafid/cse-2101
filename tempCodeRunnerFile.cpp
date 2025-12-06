@@ -1,44 +1,25 @@
-                list.erase(list.begin() + i);
-                cout << "\nStudent Deleted Successfully!\n";
-                return;
-            }
-        }
-        cout << "\nStudent Not Found!\n";
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n = 10;
+    int size = 5;
+    int arr[n] = {10,20,30,40,50};
+
+    int pos = 0;
+    int value = 100;
+
+    for(int i=5;i>pos;i--)
+    {
+        arr[i] = arr[i-1];
     }
 
-    void saveToFile() {
-        ofstream file("students.txt");
-        for (auto &s : list) {
-            file << s.id << "," << s.name << "," << s.age << "," << s.grade << "\n";
-        }
-        file.close();
-        cout << "\nData Saved to File!\n";
+    arr[pos] = value;
+    n++;
+
+    for(int i=0;i<=size;i++)
+    {
+        cout<<arr[i]<< " ";
     }
-};
 
-int main() {
-    System sys;
-    int choice;
-
-    while (true) {
-        cout << "\n===== STUDENT MANAGEMENT MENU =====";
-        cout << "\n1. Add Student";
-        cout << "\n2. Show All Students";
-        cout << "\n3. Search Student";
-        cout << "\n4. Delete Student";
-        cout << "\n5. Save to File";
-        cout << "\n6. Exit";
-        cout << "\nEnter choice: ";
-        cin >> choice;
-
-        switch (choice) {
-            case 1: sys.addStudent(); break;
-            case 2: sys.showAll(); break;
-            case 3: sys.search(); break;
-            case 4: sys.deleteStudent(); break;
-            case 5: sys.saveToFile(); break;
-            case 6: cout << "Exiting..."; return 0;
-            default: cout << "Invalid Choice!\n";
-        }
-    }
 }
